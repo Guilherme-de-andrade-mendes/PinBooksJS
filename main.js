@@ -1,11 +1,28 @@
 const peoples = [];
 
+ //Função para limpar o terminal de visualizações;
+ function cleaner(){
+    const view = document.getElementsByClassName('view')[0];
+    view.innerHTML = '';
+};
 
-
-/*A função itera por meio de 'some' para analisar se pelo menos um dos elementos passa na condição da função, tendo em vista que o CPF que é um chave-primária, logo, não podo haver duplicidade de valores;*/
+/*A função itera por meio de 'some' para analisar se pelo menos um dos elementos passa na condição da função, tendo em vista que o CPF que é um chave-primária, logo, não pode haver duplicidade de valores;*/
 function exist_CPF(parameter){
     let exist = peoples.some(values => values.CPF === parameter);
     return exist
+}
+
+/*A função itera por meio de 'some' para analisar se pelo menos um dos elementos passa na condição da função, tendo em vista que o CPF que é um chave-primária, logo, não pode haver duplicidade de valores.
+Caso encontre o CPf retorna o valor de sua posição no array 'peoples', do contrário, devolve um valor negativo;*/
+function find_people(parameter){
+    let index = -1;
+    peoples.some((values, i) => {
+        if(values.CPF === parameter){
+            index = i;
+        }
+    });
+
+    return (index === -1? -1 : index);
 }
 
 //Função responsavel por alimentar o array de pessoas, contendo os atributos de cada usuário no sistema;
@@ -19,6 +36,7 @@ function add_peoples(){
     let inputEmails = document.getElementById('textEmails').value.split(",");
     let inputTelephones = document.getElementById('textTelephone_numbers').value.split(",");
     let inputBirthday = document.getElementById('textBirthday').value;
+    let inputProfession = document.getElementById('textProfession').value;
 
     //Construção do Object que receberá os valores de entrada contidos anteriormente;
     const p = {
@@ -29,44 +47,58 @@ function add_peoples(){
         CEP: inputCEP,
         emails: inputEmails,
         telephones: inputTelephones,
-        birthday: inputBirthday
+        birthday: inputBirthday,
+        profession: inputProfession
     };
-
-    let match = exist_CPF(inputCPF);
+    const view = document.getElementsByClassName('view')[0];
+    try{
+        let match = exist_CPF(inputCPF);
     
-    /*Bloco de verificação do elemento, onde , utiliza do retorno da iteração anterior para fazer inclusão
-    ou emitir uma mensagem ao usuário que o CPF passado já existe na base de dados;
-    */
-    const view = document.getElementsByClassName('view')[0];
-    if(!match){
-        peoples.push(p);
-        view.innerHTML =  "Pessoa inserida com sucesso!";
-        
-    } else{
-        view.innerHTML = "Esse CPF já está em uso. Tente novamente com um novo!";
+        /*Bloco de verificação do elemento, onde , utiliza do retorno da iteração anterior para fazer inclusão ou emitir uma mensagem ao usuário que o CPF passado já existe na base de dados; */
+        if(!match){
+            peoples.push(p);
+            view.innerHTML =  "Pessoa inserida com sucesso!";
+            
+        }else
+            view.innerHTML = "Esse CPF já está em uso. Tente novamente com um novo!";
+    }catch(e){
+        console.log("Não foi possível inserir ou verificar o CPF do usuário.");
+        console.log(e.name); // Imprimi o nome do erro no console;
+        console.log(e.message); //Imprimi a mensagem do erro no console;
+    }finally{
+        //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
+        setTimeout(cleaner, 5000);
     }
-
-    //Função anônima para limpar o terminal de visualizações;
-    const cleaner = () => 
-        view.innerHTML = '';
-
-    //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
-    setTimeout(cleaner, 5000);
 }
 
-function findOne_people(){
+function findOne(){
     let inputCPF = document.getElementById('textCPF').value;
-    let match = exist_CPF(inputCPF);
+    try{
+        /*Faz a primeira busca para ver se consegue encontrar a pessoa com o CPF informado pelo valor de entrada que será utilizado como parâmetro da função 'find_people';*/
+        let match = find_people(inputCPF);
 
-
-    const view = document.getElementsByClassName('view')[0];
-
-    const attributsPeople = document.createElement('p');
-    // attributsPeople.setAttribute('');
-
-
-    // const textAttributs = document.createTextNode();
-
-
+        /*Se o retorno da função for um valor for maior que -1 a função continua, do contrário, ele emite uma mensagem para o usuário informando que não foi possivel encontrar
+        o usuário do CPF informado;*/
+        if(match > -1){
+            //Cria dinâmicamento elementos para armazenar os dados que serão recuperados do array;
+            const view = document.getElementsByClassName('view')[0];
+            const attributsPeople = document.createElement('p');
+            
+            //Declara uma variavel com o índice do CPF informado, permitindo assim a recuperação dos dados;
+            const person = peoples[match];
+            attributsPeople.textContent = `CPF: ${person.CPF}\nNome: ${person.name}\nEndereço: ${person.street}, ${person.nro}\nCEP: ${person.CEP}\nEmails: ${'[' + person.emails.join(', ') + ' ]'}\nTelefones: ${'[' + person.telephones.join(', ') + ' ]'}\nAniversário: ${person.birthday}\nProfissão: ${person.profession}`;
+            view.appendChild(attributsPeople);
+        }else
+            view.innerHTML = 'O CPF informado não consta na base de dados atual.';
+    }catch(e){
+        console.log("Ocorreu um erro ao tentar buscar o usuário.");
+        console.log(e.name); // Imprimi o nome do erro no console;
+        console.log(e.message); //Imprimi a mensagem do erro no console;
+    }finally{
+        //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
+        setTimeout(cleaner, 15000);
+    }
 }
+
+
 
