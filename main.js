@@ -1,4 +1,4 @@
-const peoples = [];
+const peoples =  JSON.parse(localStorage.getItem('Peoples')) || [];
 
  //Função para limpar o terminal de visualizações;
  function cleaner(){
@@ -21,44 +21,43 @@ function find_people(parameter){
             index = i;
         }
     });
-
     return (index === -1? -1 : index);
 }
 
 //Função responsavel por alimentar o array de pessoas, contendo os atributos de cada usuário no sistema;
 function add_peoples(){
     //Declaração das variaveis que recebem os parâmetros de entrada dos inputs;
-    let inputCPF = document.getElementById('textCPF').value;
-    let inputName = document.getElementById('textName').value;
-    let inputStreet = document.getElementById('textStreet').value;
-    let inputNro = document.getElementById('textNumber').value;
-    let inputCEP = document.getElementById('textCEP').value;
-    let inputEmails = document.getElementById('textEmails').value.split(",");
-    let inputTelephones = document.getElementById('textTelephone_numbers').value.split(",");
-    let inputBirthday = document.getElementById('textBirthday').value;
-    let inputProfession = document.getElementById('textProfession').value;
+    let CPF = document.getElementById('textCPF').value;
+    let name = document.getElementById('textName').value;
+    let street = document.getElementById('textStreet').value;
+    let nro = document.getElementById('textNumber').value;
+    let CEP = document.getElementById('textCEP').value;
+    let emails = document.getElementById('textEmails').value.split(",");
+    let telephones = document.getElementById('textTelephone_numbers').value.split(",");
+    let birthday = document.getElementById('textBirthday').value;
+    let profession = document.getElementById('textProfession').value;
 
     //Construção do Object que receberá os valores de entrada contidos anteriormente;
     const p = {
-        CPF: inputCPF,
-        name: inputName,
-        street: inputStreet,
-        nro: inputNro,
-        CEP: inputCEP,
-        emails: inputEmails,
-        telephones: inputTelephones,
-        birthday: inputBirthday,
-        profession: inputProfession
+        CPF,
+        name,
+        street,
+        nro,
+        CEP,
+        emails,
+        telephones,
+        birthday,
+        profession
     };
     const view = document.getElementsByClassName('view')[0];
     try{
-        let match = exist_CPF(inputCPF);
+        let match = exist_CPF(CPF);
     
         /*Bloco de verificação do elemento, onde , utiliza do retorno da iteração anterior para fazer inclusão ou emitir uma mensagem ao usuário que o CPF passado já existe na base de dados; */
         if(!match){
             peoples.push(p);
+            saveData();// Grava os dados no LocalStorage do navegador, permitindo assim a permanência das informações;
             view.innerHTML =  "Pessoa inserida com sucesso!";
-            
         }else
             view.innerHTML = "Esse CPF já está em uso. Tente novamente com um novo!";
     }catch(e){
@@ -72,10 +71,10 @@ function add_peoples(){
 }
 
 function findOne(){
-    let inputCPF = document.getElementById('textCPF').value;
+    let CPF = document.getElementById('textCPF').value;
     try{
         /*Faz a primeira busca para ver se consegue encontrar a pessoa com o CPF informado pelo valor de entrada que será utilizado como parâmetro da função 'find_people';*/
-        let match = find_people(inputCPF);
+        let match = find_people(CPF);
 
         /*Se o retorno da função for um valor for maior que -1 a função continua, do contrário, ele emite uma mensagem para o usuário informando que não foi possivel encontrar
         o usuário do CPF informado;*/
@@ -100,5 +99,8 @@ function findOne(){
     }
 }
 
+function saveData(){
+    localStorage.setItem('Peoples', JSON.stringify(peoples));
+}
 
 
