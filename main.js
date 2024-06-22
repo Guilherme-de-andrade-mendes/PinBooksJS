@@ -81,6 +81,7 @@ function findOne(){
         if(match > -1){
             //Cria dinâmicamento elementos para armazenar os dados que serão recuperados do array;
             const view = document.getElementsByClassName('view')[0];
+            view.textContent= '';
             const attributsPeople = document.createElement('p');
             
             //Declara uma variavel com o índice do CPF informado, permitindo assim a recuperação dos dados;
@@ -100,7 +101,29 @@ function findOne(){
 }
 
 function saveData(){
-    localStorage.setItem('Peoples', JSON.stringify(peoples));
+    localStorage.setItem('Peoples', JSON.stringify(peoples)); // Utilza o LocalStorage do navegador para armazenar os dados do array "peoples", transformando inicialmente em string JSON;
 }
 
+function findAll(){
+    const view = document.getElementsByClassName('view')[0];
+    view.textContent = '';
+    try{
+        if(peoples !== null){
+            peoples.forEach(element => {
+                let attributsPeople = document.createElement('p');
+                attributsPeople.textContent = `CPF: ${element.CPF}\nNome: ${element.name}\nEndereço: ${element.street}, ${element.nro}\nCEP: ${element.CEP}\nEmails: ${'[' + element.emails.join(', ') + ' ]'}\nTelefones: ${'[' + element.telephones.join(', ') + ' ]'}\nAniversário: ${element.birthday}\nProfissão: ${element.profession}`;
+                view.appendChild(attributsPeople);
+            });
+        }else{
+            view.innerHTML = 'Não existem dados para serem recuperados. Insira alguns e tente novamente.';
+        }
+    }catch(e){
+        console.log("Ocorreu um erro ao tentar buscar os dados dos usuários.");
+        console.log(e.name); // Imprimi o nome do erro no console;
+        console.log(e.message); //Imprimi a mensagem do erro no console;
+    }finally{
+        //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
+        setTimeout(cleaner, 15000);
+    }
+}
 
