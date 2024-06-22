@@ -70,7 +70,7 @@ function add_peoples(){
     }
 }
 
-function findOne(){
+function findOne_people(){
     let CPF = document.getElementById('textCPF').value;
     try{
         /*Faz a primeira busca para ver se consegue encontrar a pessoa com o CPF informado pelo valor de entrada que será utilizado como parâmetro da função 'find_people';*/
@@ -96,15 +96,15 @@ function findOne(){
         console.log(e.message); //Imprimi a mensagem do erro no console;
     }finally{
         //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
-        setTimeout(cleaner, 15000);
+        setTimeout(cleaner, 45000);
     }
 }
 
-function saveData(){
+function saveData_peoples(){
     localStorage.setItem('Peoples', JSON.stringify(peoples)); // Utilza o LocalStorage do navegador para armazenar os dados do array "peoples", transformando inicialmente em string JSON;
 }
 
-function findAll(){
+function findAll_peoples(){
     const view = document.getElementsByClassName('view')[0];
     view.textContent = '';
     try{
@@ -123,7 +123,9 @@ function findAll(){
         console.log(e.message); //Imprimi a mensagem do erro no console;
     }finally{
         //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
-        setTimeout(cleaner, 15000);
+        setTimeout(cleaner, 45000);
     }
 }
+
+function update
 
