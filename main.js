@@ -127,5 +127,39 @@ function findAll_peoples(){
     }
 }
 
-function update
+function update_people(){
+    let CPF = document.getElementById('textCPF').value;
+    try{
+        /*Faz a primeira busca para ver se consegue encontrar a pessoa com o CPF informado pelo valor de entrada que será utilizado como parâmetro da função 'find_people';*/
+        let match = find_people(CPF);
+
+        /*Se o retorno da função for um valor for maior que -1 a função continua, do contrário, ele emite uma mensagem para o usuário informando que não foi possivel encontrar
+        o usuário do CPF informado;*/
+        if(match > -1){
+            //Cria dinâmicamento elementos para armazenar os dados que serão recuperados do array;
+            const view = document.getElementsByClassName('view')[0];
+            view.textContent= '';
+            
+            //Declara uma variavel com o índice do CPF informado, permitindo assim a alteração dos dados;
+            const person = peoples[match];
+            person.name = document.getElementById('textName').value;
+            person.street = document.getElementById('textStreet').value;
+            person.nro = document.getElementById('textNumber').value;
+            person.CEP = document.getElementById('textCEP').value;
+            person.emails = document.getElementById('textEmails').value.split(",");
+            person.telephones = document.getElementById('textTelephone_numbers').value.split(",");
+            person.birthday = document.getElementById('textBirthday').value;
+            person.profession = document.getElementById('textProfession').value;
+            view.textContent = 'Os dados do usuário foram atualizados com sucesso!';
+        }else
+            view.innerHTML = 'O CPF informado não consta na base de dados atual.';
+    }catch(e){
+        console.log("Ocorreu um erro ao tentar atualizar os dados do usuário específicado.");
+        console.log(e.name); // Imprimi o nome do erro no console;
+        console.log(e.message); //Imprimi a mensagem do erro no console;
+    }finally{
+        //A função setTimeout faz com que a função de limpeza do terminal ative apenas uma vez depois 5000 milísegundos;
+        setTimeout(cleaner, 45000);
+    }
+}
 
