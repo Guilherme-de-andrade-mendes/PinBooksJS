@@ -1,5 +1,5 @@
 let peoples = JSON.parse(localStorage.getItem('Peoples')) || [];
-let books = JSON.parse(localStorage.getItem('Books')) || [];
+
 
 // Função para limpar o conteúdo da área de visualização.
 function cleaner() {
