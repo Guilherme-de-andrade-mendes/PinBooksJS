@@ -1,4 +1,5 @@
 let peoples = JSON.parse(localStorage.getItem('Peoples')) || [];
+let books = JSON.parse(localStorage.getItem('Books')) || [];
 
 // Função para limpar o conteúdo da área de visualização.
 function cleaner() {
@@ -185,4 +186,9 @@ function delete_people() {
         // Limpa a área de visualização após 45000 milissegundos.
         setTimeout(cleaner, 45000);
     }
+}
+
+// Função que salva a lista de livros no LocalStorage.
+function saveData_books() {
+    localStorage.setItem('Books', JSON.stringify(books));
 }
