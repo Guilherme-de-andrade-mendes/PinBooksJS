@@ -60,3 +60,31 @@ function add_books() {
 	}
 }
 
+// Função que busca e exibe um livro pelo ISBN fornecido.
+function findOne_book() {
+	let ISBN = document.getElementById('textISBN').value;
+	const view = document.getElementsByClassName('view')[0];
+
+	try {
+    	let match = find_book(ISBN);
+    	if (match > -1) {
+        	const book = books[match];
+        	view.innerHTML = `
+            	<p>ISBN: ${book.ISBN}</p>
+            	<p>Título: ${book.title}</p>
+            	<p>Autor: ${book.author}</p>
+            	<p>Ano de Publicação: ${book.year}</p>
+            	<p>Gênero: ${book.genre}</p>
+            	<p>Quantidade: ${book.quantity}</p>
+        	`;
+    	} else {
+        	view.innerHTML = 'O ISBN informado não consta na base de dados atual.';
+    	}
+	} catch (e) {
+    	console.error("Ocorreu um erro ao tentar buscar o livro.", e);
+	} finally {
+    	setTimeout(cleaner, 45000);
+	}
+}
+
+
