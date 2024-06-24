@@ -187,8 +187,3 @@ function delete_people() {
         setTimeout(cleaner, 45000);
     }
 }
-
-// Função que salva a lista de livros no LocalStorage.
-function saveData_books() {
-    localStorage.setItem('Books', JSON.stringify(books));
-}

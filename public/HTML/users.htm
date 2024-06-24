@@ -1,86 +1,102 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PinBooksJS</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="main.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="/public/CSS/users.css" />
+    <script src="/src/users.js"></script>
+  </head>
+  <body>
     <header>
-        <div class="website">
-            <img src="Images/Componente_5.png" alt="" id="logo"><a href="main.htm">PinBookJS</a>
-        </div>
-        <nav>
-            <ul>
-                <a href="">Usuários</a>
-                <a href="">Clientes</a>
-            </ul>
-        </nav>
+      <div class="website">
+        <img src="Images/Componente_5.png" alt="" id="logo" /><a href="main.htm"
+          >PinBookJS</a
+        >
+      </div>
+      <nav>
+        <ul>
+          <a href="">Usuários</a>
+          <a href="">Clientes</a>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div>
-            <label for="text">CPF:</label><br>
-            <input type="text" id="textCPF"><br>
-    
-            <label for="text">Nome:</label><br>
-            <input type="text" id="textName"><br>
-    
-            <label for="text">Rua:</label><br>
-            <input type="text" id="textStreet"><br>
-    
-            <label for="text">Número:</label><br>
-            <input type="text" id="textNumber"><br>
-    
-            <label for="text">CEP:</label><br>
-            <input type="text" id="textCEP"><br>
-    
-            <label for="text">E-mail(s):</label><br>
-            <input type="text" id="textEmails"><br>
-    
-            <label for="text">Telefone(s):</label><br>
-            <input type="text" id="textTelephone_numbers"><br>
-    
-            <label for="text">Data de nascimento:</label><br>
-            <input type="text" id="textBirthday"><br>
-            
-            <label for="text">Profissão:</label><br>
-            <input type="text" id="textProfession"><br><br>
-            <button onclick="add_peoples()">Adicionar</button>
-            <button onclick="findOne_people()">Buscar um</button>
-            <button onclick="findAll_peoples()">Buscar todos</button>
-            <button onclick="update_people()">Alterar dados</button>
-            <button onclick="delete_people()">Excluir usuário</button>
-        </div>
-        <div class="view">
-    
-        </div>
-    </main><br>
+      <div>
+        <label for="text">CPF:</label><br />
+        <input type="text" id="textCPF" /><br />
+
+        <label for="text">Nome:</label><br />
+        <input type="text" id="textName" /><br />
+
+        <label for="text">Rua:</label><br />
+        <input type="text" id="textStreet" /><br />
+
+        <label for="text">Número:</label><br />
+        <input type="text" id="textNumber" /><br />
+
+        <label for="text">CEP:</label><br />
+        <input type="text" id="textCEP" /><br />
+
+        <label for="text">E-mail(s):</label><br />
+        <input type="text" id="textEmails" /><br />
+
+        <label for="text">Telefone(s):</label><br />
+        <input type="text" id="textTelephone_numbers" /><br />
+
+        <label for="text">Data de nascimento:</label><br />
+        <input type="text" id="textBirthday" /><br />
+
+        <label for="text">Profissão:</label><br />
+        <input type="text" id="textProfession" /><br /><br />
+        <button onclick="add_peoples()">Adicionar</button>
+        <button onclick="findOne_people()">Buscar um</button>
+        <button onclick="findAll_peoples()">Buscar todos</button>
+        <button onclick="update_people()">Alterar dados</button>
+        <button onclick="delete_people()">Excluir usuário</button>
+      </div>
+      <div class="view"></div>
+    </main>
+    <br />
     <div id="faq">
-        <details>
-            <summary>Pergunta...</summary>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore adipisci cupiditate officiis ut voluptates.</p>
-        </details>
-        <details>
-            <summary>Pergunta...</summary>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore adipisci cupiditate officiis ut voluptates.</p>
-        </details>
-        <details>
-            <summary>Pergunta...</summary>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore adipisci cupiditate officiis ut voluptates.</p>
-        </details>
-        <details>
-            <summary>Pergunta...</summary>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore adipisci cupiditate officiis ut voluptates.</p>
-        </details>
-        <details>
-            <summary>Pergunta...</summary>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore adipisci cupiditate officiis ut voluptates.</p>
-        </details>
+      <details>
+        <summary>Pergunta...</summary>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+          adipisci cupiditate officiis ut voluptates.
+        </p>
+      </details>
+      <details>
+        <summary>Pergunta...</summary>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+          adipisci cupiditate officiis ut voluptates.
+        </p>
+      </details>
+      <details>
+        <summary>Pergunta...</summary>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+          adipisci cupiditate officiis ut voluptates.
+        </p>
+      </details>
+      <details>
+        <summary>Pergunta...</summary>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+          adipisci cupiditate officiis ut voluptates.
+        </p>
+      </details>
+      <details>
+        <summary>Pergunta...</summary>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
+          adipisci cupiditate officiis ut voluptates.
+        </p>
+      </details>
     </div>
     <footer>
-        <h2>Copyright 2024</h2>
+      <h2>Copyright 2024</h2>
     </footer>
-</body>
+  </body>
 </html>
