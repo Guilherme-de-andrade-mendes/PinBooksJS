@@ -23,3 +23,40 @@ function exist_ISBN(parameter) {
 function find_book(parameter) {
     return books.findIndex(values => values.ISBN === parameter);
 }
+
+// Função responsável por adicionar um novo livro à lista.
+// Os atributos do livro são obtidos dos inputs do formulário.
+function add_books() {
+	let ISBN = document.getElementById('textISBN').value;
+	let title = document.getElementById('textTitle').value;
+	let author = document.getElementById('textAuthor').value;
+	let year = document.getElementById('textYear').value;
+	let genre = document.getElementById('textGenre').value;
+	let quantity = document.getElementById('textQuantity').value;
+
+	const b = {
+    	ISBN,
+    	title,
+    	author,
+    	year,
+    	genre,
+    	quantity
+	};
+
+	const view = document.getElementsByClassName('view')[0];
+
+	try {
+    	if (!exist_ISBN(ISBN)) {
+        	books.push(b);
+        	saveData_books();
+        	view.innerHTML = "Livro inserido com sucesso!";
+    	} else {
+        	view.innerHTML = "Esse ISBN já está em uso. Tente novamente com um novo!";
+    	}
+	} catch (e) {
+    	console.error("Não foi possível inserir ou verificar o ISBN do livro.", e);
+	} finally {
+    	setTimeout(cleaner, 5000);
+	}
+}
+
