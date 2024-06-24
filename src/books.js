@@ -117,4 +117,31 @@ function findAll_books() {
 	}
 }
 
+// Função que atualiza os dados de um livro existente na lista.
+function update_book() {
+	let ISBN = document.getElementById('textISBN').value;
+	const view = document.getElementsByClassName('view')[0];
+
+	try {
+    	let match = find_book(ISBN);
+    	if (match > -1) {
+        	const book = books[match];
+        	book.title = document.getElementById('textTitle').value;
+        	book.author = document.getElementById('textAuthor').value;
+        	book.year = document.getElementById('textYear').value;
+        	book.genre = document.getElementById('textGenre').value;
+        	book.quantity = document.getElementById('textQuantity').value;
+
+        	saveData_books();
+        	view.innerHTML = 'Os dados do livro foram atualizados com sucesso!';
+    	} else {
+        	view.innerHTML = 'O ISBN informado não consta na base de dados atual.';
+    	}
+	} catch (e) {
+    	console.error("Ocorreu um erro ao tentar atualizar os dados do livro especificado.", e);
+	} finally {
+    	setTimeout(cleaner, 45000);
+	}
+}
+
 
