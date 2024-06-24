@@ -112,7 +112,8 @@ function findAll_peoples() {
         if (peoples.length > 0) {
             peoples.forEach(element => {
                 let attributsPeople = document.createElement('p');
-                attributsPeople.textContent = `CPF: ${element.CPF}\nNome: ${element.name}\nEndereço: ${element.street}, ${element.nro}\nCEP: ${element.CEP}\nEmails: [${element.emails.join(', ')}]\nTelefones: [${element.telephones.join(', ')}]\nAniversário: ${element.birthday}\nProfissão: ${element.profession}`;
+                // attributsPeople.textContent = `CPF: ${element.CPF}\nNome: ${element.name}\nEndereço: ${element.street}, ${element.nro}\nCEP: ${element.CEP}\nEmails: [${element.emails.join(', ')}]\nTelefones: [${element.telephones.join(', ')}]\nAniversário: ${element.birthday}\nProfissão: ${element.profession}`;
+                attributsPeople.innerHTML = `CPF: ${element.CPF}\nNome: ${element.name}\nEndereço: ${element.street}, ${element.nro}\nCEP: ${element.CEP}\nEmails: [${element.emails.join(', ')}]\nTelefones: [${element.telephones.join(', ')}]\nAniversário: ${element.birthday}\nProfissão: ${element.profession}<br>`;
                 view.appendChild(attributsPeople);
             });
         } else {

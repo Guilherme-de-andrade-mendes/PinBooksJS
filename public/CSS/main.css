@@ -15,11 +15,9 @@ body {
 }
 body {
   background-color: var(--body-color);
-  /* background-color: rgb(33, 34, 65); */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: medium;
   color: var(--text-color-1);
-  /* color: #ffffff; */
   display: flex;
   flex-direction: column;
 }
@@ -31,6 +29,7 @@ header {
   padding: 10px 0px;
   width: 100%;
   font-size: larger;
+  position: fixed;
 }
 .website {
   display: flex;
@@ -63,6 +62,15 @@ main > h1 {
 }
 #faq {
   margin: 50px 30px;
+}
+#faq > h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+details{
+    border: 1px solid var(--text-color-1);
+    padding: 10px;
+    margin-bottom: 5px;
 }
 footer {
   text-align: center;
