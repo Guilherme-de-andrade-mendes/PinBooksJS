@@ -5,3 +5,9 @@ let books = JSON.parse(localStorage.getItem('Books')) || [];
 function saveData_books() {
     localStorage.setItem('Books', JSON.stringify(books));
 }
+
+// Função para limpar o conteúdo da área de visualização.
+function cleaner() {
+    const view = document.getElementsByClassName('view')[0];
+    view.innerHTML = '';
+}
