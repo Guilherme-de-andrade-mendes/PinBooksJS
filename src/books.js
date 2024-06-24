@@ -144,4 +144,25 @@ function update_book() {
 	}
 }
 
+// Função que exclui um livro da lista pelo ISBN.
+function delete_book() {
+	let ISBN = document.getElementById('textISBN').value;
+	const view = document.getElementsByClassName('view')[0];
+
+	try {
+    	let match = find_book(ISBN);
+    	if (match > -1) {
+        	books = books.filter(element => element.ISBN !== ISBN);
+        	saveData_books();
+        	view.innerHTML = 'O livro foi excluído com sucesso!';
+    	} else {
+        	view.innerHTML = 'O ISBN informado não consta na base de dados atual.';
+    	}
+	} catch (e) {
+    	console.error("Ocorreu um erro ao tentar excluir os dados do livro especificado.", e);
+	} finally {
+    	setTimeout(cleaner, 45000);
+	}
+}
+
 
