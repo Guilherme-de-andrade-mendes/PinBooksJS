@@ -63,14 +63,14 @@ main > h1 {
 #faq {
   margin: 50px 30px;
 }
-#faq > h2{
-    text-align: center;
-    margin-bottom: 40px;
+#faq > h2 {
+  text-align: center;
+  margin-bottom: 40px;
 }
-details{
-    border: 1px solid var(--text-color-1);
-    padding: 10px;
-    margin-bottom: 5px;
+details {
+  border: 1px solid var(--text-color-1);
+  padding: 10px;
+  margin-bottom: 5px;
 }
 footer {
   text-align: center;

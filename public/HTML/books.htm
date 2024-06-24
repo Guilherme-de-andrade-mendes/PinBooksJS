@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PinBooksJS</title>
-  <link rel="stylesheet" href="/public/CSS/books.css" />
-  <script src="/src/books.js"></script>
-</head>
-<body>
-  <header>
-    <div class="website">
-      <img src="/Images/Componente_5.png" alt="" id="logo" /><a href="main.htm">Lumière</a>
-    </div>
-    <nav>
-      <ul>
-        <a href="clients.htm">Clientes</a>
-        <a href="books.htm">Livros</a>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div>
-      <label for="text">ISBN:</label><br />
-      <input type="text" id="textISBN" /><br />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PinBooksJS</title>
+    <link rel="stylesheet" href="/public/CSS/clients.css" />
+    <script src="/src/clients.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="website">
+        <img src="/Images/Componente_5.png" alt="" id="logo" /><a
+          href="main.htm"
+          >Lumière</a
+        >
+      </div>
+      <nav>
+        <ul>
+          <a href="clients.htm">Clientes</a>
+          <a href="books.htm">Livros</a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      
+      <div class="container_inputs">
+        <h1>Livros</h1>
+        <br />
+        <label for="text">ISBN:</label><br />
+        <input type="text" id="textISBN" /><br />
 
-      <label for="text">Título:</label><br />
-      <input type="text" id="textTitle" /><br />
+        <label for="text">Título:</label><br />
+        <input type="text" id="textTitle" /><br />
 
-      <label for="text">Autor:</label><br />
-      <input type="text" id="textAuthor" /><br />
+        <label for="text">Autor(es):</label><br />
+        <input type="text" id="textAuthor" /><br />
 
-      <label for="text">Ano de Publicação:</label><br />
-      <input type="text" id="textYear" /><br />
+        <label for="text">Ano de Publicação:</label><br />
+        <input type="text" id="textYear" /><br />
 
-      <label for="text">Gênero:</label><br />
-      <input type="text" id="textGenre" /><br />
+        <label for="text">Gênero:</label><br />
+        <input type="text" id="textGenre" /><br />
 
-      <label for="text">Quantidade:</label><br />
-      <input type="text" id="textQuantity" /><br /><br />
-      <button onclick="add_books()">Adicionar</button>
-      <button onclick="findOne_book()">Buscar um</button>
-      <button onclick="findAll_books()">Buscar todos</button>
-      <button onclick="update_book()">Alterar dados</button>
-      <button onclick="delete_book()">Excluir livro</button>
-    </div>
-    <div class="view"></div>
-  </main>
-  <footer>
-    <h2>Copyright 2024</h2>
-  </footer>
-</body>
+        <label for="text">Número de páginas:</label><br />
+        <input type="text" id="textQuantity" /><br /><br />
+        <button onclick="add_books()">Adicionar</button>
+        <button onclick="findOne_book()">Buscar um</button>
+        <button onclick="findAll_books()">Buscar todos</button>
+        <button onclick="update_book()">Alterar dados</button>
+        <button onclick="delete_book()">Excluir livro</button>
+      </div>
+      <img src="/Images/Componente_4.png" alt="" />
+    </main>
+    <div id="imgdivisor">
+      <img src="/Images/Componente_3.png" alt="" />
+    </div><br>
+    <div class="view"></div><br>
+    <footer>
+      <h2>Copyright 2024</h2>
+    </footer>
+  </body>
 </html>
