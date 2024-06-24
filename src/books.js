@@ -18,4 +18,8 @@ function exist_ISBN(parameter) {
     return books.some(values => values.ISBN === parameter);
 }
 
-
+// Função que busca um livro pelo ISBN e retorna o índice na lista de livros.
+// Utiliza o método 'findIndex' para iterar pelos elementos. Retorna -1 se não encontrado.
+function find_book(parameter) {
+    return books.findIndex(values => values.ISBN === parameter);
+}
