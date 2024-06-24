@@ -87,4 +87,34 @@ function findOne_book() {
 	}
 }
 
+// Função que exibe todos os livros armazenados na lista.
+function findAll_books() {
+	const view = document.getElementsByClassName('view')[0];
+	view.textContent = '';
+
+	try {
+    	if (books.length > 0) {
+        	books.forEach(element => {
+            	const attributsBook = document.createElement('p');
+            	attributsBook.innerHTML = `
+                	<p>ISBN: ${element.ISBN}</p>
+                	<p>Título: ${element.title}</p>
+                	<p>Autor: ${element.author}</p>
+                	<p>Ano de Publicação: ${element.year}</p>
+                	<p>Gênero: ${element.genre}</p>
+                	<p>Quantidade: ${element.quantity}</p>
+                	<br>
+            	`;
+            	view.appendChild(attributsBook);
+        	});
+    	} else {
+        	view.innerHTML = 'Não existem dados para serem recuperados. Insira alguns e tente novamente.';
+    	}
+	} catch (e) {
+    	console.error("Ocorreu um erro ao tentar buscar os dados dos livros.", e);
+	} finally {
+    	setTimeout(cleaner, 45000);
+	}
+}
+
 
