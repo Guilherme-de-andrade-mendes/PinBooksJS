@@ -93,7 +93,7 @@ function findAll_books() {
   try {
     if (books.length > 0) {
       books.forEach((element) => {
-        let attributsBook = document.createElement("p");
+        let attributsBook = document.createElement("div");
         attributsBook.innerHTML = `
         <p>ISBN: ${element.ISBN}</p>
         <p>Título: ${element.title}</p>

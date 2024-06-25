@@ -82,7 +82,7 @@ function findOne_people() {
     if (match > -1) {
       const view = document.getElementsByClassName("view")[0];
       view.textContent = "";
-      const attributsPeople = document.createElement("p");
+      const attributsPeople = document.createElement("div");
       const person = peoples[match];
       attributsPeople.innerHTML = `
         <p>CPF: ${person.CPF}</p>
@@ -119,7 +119,7 @@ function findAll_peoples() {
   try {
     if (peoples.length > 0) {
       peoples.forEach((element) => {
-        let attributsPeople = document.createElement("p");
+        let attributsPeople = document.createElement("div");
         attributsPeople.innerHTML = `
         <p>CPF: ${element.CPF}</p>
         <p>Nome: ${element.name}</p>
