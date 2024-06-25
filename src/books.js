@@ -32,7 +32,8 @@ function add_books() {
   let year = document.getElementById("textYear").value;
   let genre = document.getElementById("textGenre").value;
   let numberOfPages = document.getElementById("textnumberOfPages").value;
-
+  if(ISBN === '' || ISBN === null)
+      return;
   const b = {
     ISBN,
     title,

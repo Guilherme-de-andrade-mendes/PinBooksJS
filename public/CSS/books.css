@@ -5,6 +5,7 @@
   --text-color-1: #000000;
   --text-color-2: #333333;
   --highlight-color: #666666;
+  --highlight-color-red: rgb(183, 25, 25);
 }
 
 * {
@@ -125,7 +126,7 @@ button {
 
 .view {
   background-color: var(--primary-color);
-  width: 95%;
+  width: 98%;
   height: auto;
   margin: auto;
   padding: 20px;
@@ -150,7 +151,7 @@ button {
 }
 
 .error {
-  color: red;
+  color: var(--highlight-color-red);
   font-weight: bold;
   padding: 10px;
   border-radius: 5px;

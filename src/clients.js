@@ -39,7 +39,8 @@ function add_peoples() {
     .value.split(",");
   let birthday = document.getElementById("textBirthday").value;
   let profession = document.getElementById("textProfession").value;
-
+  if(CPF === '' || CPF === null)
+    return;
   const p = {
     CPF,
     name,
