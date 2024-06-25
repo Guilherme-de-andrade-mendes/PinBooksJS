@@ -31,7 +31,7 @@ function add_books() {
   let author = document.getElementById("textAuthor").value.split(",");
   let year = document.getElementById("textYear").value;
   let genre = document.getElementById("textGenre").value;
-  let quantity = document.getElementById("textQuantity").value;
+  let numberOfPages = document.getElementById("textnumberOfPages").value;
 
   const b = {
     ISBN,
@@ -39,7 +39,7 @@ function add_books() {
     author,
     year,
     genre,
-    quantity,
+    numberOfPages,
   };
 
   const view = document.getElementsByClassName("view")[0];
@@ -74,7 +74,7 @@ function findOne_book() {
           <p><strong>Autor(es):</strong> ${book.author.join(", ")}</p>
           <p><strong>Ano de Publicação:</strong> ${book.year}</p>
           <p><strong>Gênero:</strong> ${book.genre}</p>
-          <p><strong>Número de páginas:</strong> ${book.quantity}</p>
+          <p><strong>Número de páginas:</strong> ${book.numberOfPages}</p>
         </div>
       `;
     } else {
@@ -102,7 +102,7 @@ function findAll_books() {
           <p><strong>Autor(es):</strong> ${element.author.join(", ")}</p>
           <p><strong>Ano de Publicação:</strong> ${element.year}</p>
           <p><strong>Gênero:</strong> ${element.genre}</p>
-          <p><strong>Número de páginas:</strong> ${element.quantity}</p>
+          <p><strong>Número de páginas:</strong> ${element.numberOfPages}</p>
         `;
         view.appendChild(attributsBook);
       });
@@ -129,7 +129,7 @@ function update_book() {
       book.author = document.getElementById("textAuthor").value;
       book.year = document.getElementById("textYear").value;
       book.genre = document.getElementById("textGenre").value;
-      book.quantity = document.getElementById("textQuantity").value;
+      book.numberOfPages = document.getElementById("textnumberOfPages").value;
 
       saveData_books();
       view.innerHTML = "Os dados do livro foram atualizados com sucesso!";
