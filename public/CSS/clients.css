@@ -77,6 +77,8 @@ main {
   flex: 1;
   background-color: var(--primary-color);
   box-sizing: border-box;
+  border-radius: 20px;
+  flex-wrap: wrap;
 }
 
 main > h1 {
@@ -101,6 +103,7 @@ main > img {
   text-align: center;
   width: 200px;
   margin-top: 10px;
+  box-sizing: content-box;
 }
 
 input {
@@ -110,17 +113,23 @@ input {
   margin: 5px 0px;
 }
 
+#container_buttons{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 button {
   background-color: var(--secundary-color);
   border: 0px;
   padding: 3px;
-  word-wrap: break-word;
-  flex-direction: column;
   border-radius: 10px;
   padding: 10px 0px;
-  width: 5vw;
   height: 5vh;
   text-align: center;
+  display: inline-block;
+  max-width: 15rem;
+  min-width: 6rem;
+  margin: 5px;
 }
 
 .view {
@@ -162,4 +171,20 @@ footer {
   background-color: var(--primary-color);
   height: 5vh;
   width: 100%;
+}
+
+@media (max-width: 600px){
+  main{
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  .container_inputs{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  #container_buttons {
+    display: grid;
+  }
 }

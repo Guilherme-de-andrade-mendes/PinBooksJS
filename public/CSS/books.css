@@ -5,7 +5,6 @@
   --text-color-1: #000000;
   --text-color-2: #333333;
   --highlight-color: #666666;
-  --highlight-color-red: rgb(183, 25, 25);
 }
 
 * {
@@ -78,6 +77,8 @@ main {
   flex: 1;
   background-color: var(--primary-color);
   box-sizing: border-box;
+  border-radius: 20px;
+  flex-wrap: wrap;
 }
 
 main > h1 {
@@ -102,6 +103,7 @@ main > img {
   text-align: center;
   width: 200px;
   margin-top: 10px;
+  box-sizing: content-box;
 }
 
 input {
@@ -111,17 +113,23 @@ input {
   margin: 5px 0px;
 }
 
+#container_buttons{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 button {
   background-color: var(--secundary-color);
   border: 0px;
   padding: 3px;
-  word-wrap: break-word;
-  flex-direction: column;
   border-radius: 10px;
   padding: 10px 0px;
-  width: 5vw;
   height: 5vh;
   text-align: center;
+  display: inline-block;
+  max-width: 15rem;
+  min-width: 6rem;
+  margin: 5px;
 }
 
 .view {
@@ -133,31 +141,27 @@ button {
   border-radius: 10px;
 }
 
-.dataDivs {
+.person-details {
   background-color: var(--body-color);
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.dataDivs p {
+.person-details p {
   margin: 5px 0;
   color: var(--text-color-2);
 }
 
-.dataDivs strong {
+.person-details strong {
   color: var(--highlight-color);
 }
 
-.error {
-  color: var(--highlight-color-red);
+.error-message {
+  color: red;
   font-weight: bold;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: var(--body-color);
 }
-
 
 footer {
   text-align: center;
@@ -167,4 +171,20 @@ footer {
   background-color: var(--primary-color);
   height: 5vh;
   width: 100%;
+}
+
+@media (max-width: 600px){
+  main{
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  .container_inputs{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  #container_buttons {
+    display: grid;
+  }
 }
