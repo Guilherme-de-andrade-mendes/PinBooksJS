@@ -1,8 +1,10 @@
 :root {
   --body-color: #f5f5f1;
   --primary-color: #d9d9d9;
+  --secundary-color: #a39191;
   --text-color-1: #000000;
-  --button-background: #a39191;
+  --text-color-2: #333333;
+  --highlight-color: #666666;
 }
 
 * {
@@ -86,9 +88,8 @@ main > img {
   height: auto;
 }
 
-.container_inputs{
+.container_inputs {
   padding: 20px;
-  background-color: #000000;
   justify-content: center;
   align-items: center;
 }
@@ -110,16 +111,47 @@ input {
 }
 
 button {
-  background-color: var(--button-background);
+  background-color: var(--secundary-color);
   border: 0px;
   padding: 3px;
   word-wrap: break-word;
   flex-direction: column;
   border-radius: 10px;
-  padding: 10px 10px;
-
+  padding: 10px 0px;
   width: 5vw;
-  height: 20px;
+  height: 5vh;
+  text-align: center;
+}
+
+.view {
+  background-color: var(--primary-color);
+  width: 95%;
+  height: auto;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.person-details {
+  background-color: var(--body-color);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.person-details p {
+  margin: 5px 0;
+  color: var(--text-color-2);
+}
+
+.person-details strong {
+  color: var(--highlight-color);
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
 }
 
 footer {

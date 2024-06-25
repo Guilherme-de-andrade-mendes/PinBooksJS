@@ -83,26 +83,29 @@ function findOne_people() {
       const view = document.getElementsByClassName("view")[0];
       view.textContent = "";
       const attributsPeople = document.createElement("div");
+      attributsPeople.className = "person-details";
       const person = peoples[match];
       attributsPeople.innerHTML = `
-        <p>CPF: ${person.CPF}</p>
-        <p>Nome: ${person.name}</p>
-        <p>Endereço: ${person.street}, Número: ${person.nro}</p>
-        <p>CEP: ${person.CEP}</p>
-        <p>Emails: [${person.emails.join(", ")}]</p>
-        <p>Telefones: [${person.telephones.join(", ")}]</p>
-        <p>Aniversário: ${person.birthday}</p>
-        <p>Profissão: ${person.profession}</p>`;
+        <p><strong>CPF:</strong> ${person.CPF}</p>
+        <p><strong>Nome:</strong> ${person.name}</p>
+        <p><strong>Endereço:</strong> ${person.street}, Número: ${
+        person.nro
+      }</p>
+        <p><strong>CEP:</strong> ${person.CEP}</p>
+        <p><strong>Emails:</strong> [${person.emails.join(", ")}]</p>
+        <p><strong>Telefones:</strong> [${person.telephones.join(", ")}]</p>
+        <p><strong>Aniversário:</strong> ${person.birthday}</p>
+        <p><strong>Profissão:</strong> ${person.profession}</p>`;
       view.appendChild(attributsPeople);
     } else {
-      view.innerHTML = "O CPF informado não consta na base de dados atual.";
+      view.innerHTML =
+        "<p class='error-message'>O CPF informado não consta na base de dados atual.</p>";
     }
   } catch (e) {
     console.log("Ocorreu um erro ao tentar buscar o usuário.");
-    console.log(e.name); // Imprime o nome do erro no console.
-    console.log(e.message); // Imprime a mensagem do erro no console.
+    console.log(e.name);
+    console.log(e.message);
   } finally {
-    // Limpa a área de visualização após 45000 milissegundos.
     setTimeout(cleaner, 45000);
   }
 }
@@ -120,28 +123,29 @@ function findAll_peoples() {
     if (peoples.length > 0) {
       peoples.forEach((element) => {
         let attributsPeople = document.createElement("div");
+        attributsPeople.className = "person-details";
         attributsPeople.innerHTML = `
-        <p>CPF: ${element.CPF}</p>
-        <p>Nome: ${element.name}</p>
-        <p>Endereço: ${element.street}</p>
-        <p>Numero${element.nro}</p>
-        <p>CEP: ${element.CEP}</p>
-        <p>Emails: [ ${element.emails.join(", ")} ]</p>
-        <p>Telefones: [ ${element.telephones.join(", ")} ]</p>
-        <p>Aniversário: ${element.birthday}</p>
-        <p>Profissão: ${element.profession}</p>`;
+        <p><strong>CPF:</strong> ${element.CPF}</p>
+        <p><strong>Nome:</strong> ${element.name}</p>
+        <p><strong>Endereço:</strong> ${element.street}, Número: ${
+          element.nro
+        }</p>
+        <p><strong>CEP:</strong> ${element.CEP}</p>
+        <p><strong>Emails:</strong> [ ${element.emails.join(", ")} ]</p>
+        <p><strong>Telefones:</strong> [ ${element.telephones.join(", ")} ]</p>
+        <p><strong>Aniversário:</strong> ${element.birthday}</p>
+        <p><strong>Profissão:</strong> ${element.profession}</p>`;
         view.appendChild(attributsPeople);
       });
     } else {
       view.innerHTML =
-        "Não existem dados para serem recuperados. Insira alguns e tente novamente.";
+        "<p class='error-message'>Não existem dados para serem recuperados. Insira alguns e tente novamente.</p>";
     }
   } catch (e) {
     console.log("Ocorreu um erro ao tentar buscar os dados dos usuários.");
-    console.log(e.name); // Imprime o nome do erro no console.
-    console.log(e.message); // Imprime a mensagem do erro no console.
+    console.log(e.name);
+    console.log(e.message);
   } finally {
-    // Limpa a área de visualização após 45000 milissegundos.
     setTimeout(cleaner, 45000);
   }
 }

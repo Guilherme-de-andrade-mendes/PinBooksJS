@@ -60,7 +60,6 @@ function add_books() {
 }
 
 // Função que busca e exibe um livro pelo ISBN fornecido.
-// Função que busca e exibe um livro pelo ISBN fornecido.
 function findOne_book() {
   let ISBN = document.getElementById("textISBN").value;
   const view = document.getElementsByClassName("view")[0];
@@ -69,15 +68,17 @@ function findOne_book() {
     if (match > -1) {
       const book = books[match];
       view.innerHTML = `
-        <p>ISBN: ${book.ISBN}</p>
-        <p>Título: ${book.title}</p>
-        <p>Autor(es): [ ${book.author.join(", ")} ]</p>
-        <p>Ano de Publicação: ${book.year}</p>
-        <p>Gênero: ${book.genre}</p>
-        <p>Número de páginas: ${book.quantity}</p>
+        <div class="dataDivs">
+          <p><strong>ISBN:</strong> ${book.ISBN}</p>
+          <p><strong>Título:</strong> ${book.title}</p>
+          <p><strong>Autor(es):</strong> ${book.author.join(", ")}</p>
+          <p><strong>Ano de Publicação:</strong> ${book.year}</p>
+          <p><strong>Gênero:</strong> ${book.genre}</p>
+          <p><strong>Número de páginas:</strong> ${book.quantity}</p>
+        </div>
       `;
     } else {
-      view.innerHTML = "O ISBN informado não consta na base de dados atual.";
+      view.innerHTML = "<p class='error'>O ISBN informado não consta na base de dados atual.</p>";
     }
   } catch (e) {
     console.error("Ocorreu um erro ao tentar buscar o livro.", e);
@@ -94,18 +95,19 @@ function findAll_books() {
     if (books.length > 0) {
       books.forEach((element) => {
         let attributsBook = document.createElement("div");
+        attributsBook.setAttribute('class', 'dataDivs');
         attributsBook.innerHTML = `
-        <p>ISBN: ${element.ISBN}</p>
-        <p>Título: ${element.title}</p>
-        <p>Autor(es): [ ${element.author.join(", ")} ]</p>
-        <p>Ano de Publicação: ${element.year}</p>
-        <p>Gênero: ${element.genre}</p>
-        <p>Número de páginas: ${element.quantity}</p>`;
+          <p><strong>ISBN:</strong> ${element.ISBN}</p>
+          <p><strong>Título:</strong> ${element.title}</p>
+          <p><strong>Autor(es):</strong> ${element.author.join(", ")}</p>
+          <p><strong>Ano de Publicação:</strong> ${element.year}</p>
+          <p><strong>Gênero:</strong> ${element.genre}</p>
+          <p><strong>Número de páginas:</strong> ${element.quantity}</p>
+        `;
         view.appendChild(attributsBook);
       });
     } else {
-      view.innerHTML =
-        "Não existem dados para serem recuperados. Insira alguns e tente novamente.";
+      view.innerHTML = "<p class='error'>Não existem dados para serem recuperados. Insira alguns e tente novamente.</p>";
     }
   } catch (e) {
     console.error("Ocorreu um erro ao tentar buscar os dados dos livros.", e);
