@@ -60,22 +60,22 @@ function add_books() {
 }
 
 // Função que busca e exibe um livro pelo ISBN fornecido.
+// Função que busca e exibe um livro pelo ISBN fornecido.
 function findOne_book() {
   let ISBN = document.getElementById("textISBN").value;
   const view = document.getElementsByClassName("view")[0];
-
   try {
     let match = find_book(ISBN);
     if (match > -1) {
       const book = books[match];
       view.innerHTML = `
-            	<p>ISBN: ${book.ISBN}</p>
-            	<p>Título: ${book.title}</p>
-            	<p>Autor(es): [ ${element.author.join(", ")} ]</p>
-            	<p>Ano de Publicação: ${book.year}</p>
-            	<p>Gênero: ${book.genre}</p>
-            	<p>Quantidade: ${book.quantity}</p>
-        	`;
+        <p>ISBN: ${book.ISBN}</p>
+        <p>Título: ${book.title}</p>
+        <p>Autor(es): [ ${book.author.join(", ")} ]</p>
+        <p>Ano de Publicação: ${book.year}</p>
+        <p>Gênero: ${book.genre}</p>
+        <p>Número de páginas: ${book.quantity}</p>
+      `;
     } else {
       view.innerHTML = "O ISBN informado não consta na base de dados atual.";
     }
@@ -90,20 +90,17 @@ function findOne_book() {
 function findAll_books() {
   const view = document.getElementsByClassName("view")[0];
   view.textContent = "";
-
   try {
     if (books.length > 0) {
       books.forEach((element) => {
-        const attributsBook = document.createElement("p");
+        let attributsBook = document.createElement("p");
         attributsBook.innerHTML = `
-                	<p>ISBN: ${element.ISBN}</p>
-                	<p>Título: ${element.title}</p>
-                	<p>Autor(es): [ ${element.author.join(", ")} ]</p>
-                	<p>Ano de Publicação: ${element.year}</p>
-                	<p>Gênero: ${element.genre}</p>
-                	<p>Quantidade: ${element.quantity}</p>
-                	<br>
-            	`;
+        <p>ISBN: ${element.ISBN}</p>
+        <p>Título: ${element.title}</p>
+        <p>Autor(es): [ ${element.author.join(", ")} ]</p>
+        <p>Ano de Publicação: ${element.year}</p>
+        <p>Gênero: ${element.genre}</p>
+        <p>Número de páginas: ${element.quantity}</p>`;
         view.appendChild(attributsBook);
       });
     } else {

@@ -74,27 +74,25 @@ function add_peoples() {
 }
 
 // Função que busca e exibe uma pessoa pelo CPF fornecido.
+// Função que busca e exibe uma pessoa pelo CPF fornecido.
 function findOne_people() {
   let CPF = document.getElementById("textCPF").value;
   try {
     let match = find_people(CPF);
-
     if (match > -1) {
       const view = document.getElementsByClassName("view")[0];
       view.textContent = "";
       const attributsPeople = document.createElement("p");
-
       const person = peoples[match];
       attributsPeople.innerHTML = `
-      <p>CPF: ${person.CPF}</p>
-      <p>Nome: ${person.name}</p>
-      <p>Endereço: ${person.street}</p>
-      <p>Numero${person.nro}</p>
-      <p>CEP: ${person.CEP}</p>
-      <p>Emails: [${person.emails.join(", ")}]</p>
-      <p>Telefones: [${person.telephones.join(", ")}]</p>
-      <p>Aniversário: ${person.birthday}</p>
-      <>Profissão: ${person.profession}</p>`;
+        <p>CPF: ${person.CPF}</p>
+        <p>Nome: ${person.name}</p>
+        <p>Endereço: ${person.street}, Número: ${person.nro}</p>
+        <p>CEP: ${person.CEP}</p>
+        <p>Emails: [${person.emails.join(", ")}]</p>
+        <p>Telefones: [${person.telephones.join(", ")}]</p>
+        <p>Aniversário: ${person.birthday}</p>
+        <p>Profissão: ${person.profession}</p>`;
       view.appendChild(attributsPeople);
     } else {
       view.innerHTML = "O CPF informado não consta na base de dados atual.";
@@ -122,17 +120,16 @@ function findAll_peoples() {
     if (peoples.length > 0) {
       peoples.forEach((element) => {
         let attributsPeople = document.createElement("p");
-        // attributsPeople.textContent = `CPF: ${element.CPF}\nNome: ${element.name}\nEndereço: ${element.street}, ${element.nro}\nCEP: ${element.CEP}\nEmails: [${element.emails.join(', ')}]\nTelefones: [${element.telephones.join(', ')}]\nAniversário: ${element.birthday}\nProfissão: ${element.profession}`;
         attributsPeople.innerHTML = `
-        <p>CPF: ${person.CPF}</p>
-        <p>Nome: ${person.name}</p>
-        <p>Endereço: ${person.street}</p>
-        <p>Numero${person.nro}</p>
-        <p>CEP: ${person.CEP}</p>
-        <p>Emails: [${person.emails.join(", ")}]</p>
-        <p>Telefones: [${person.telephones.join(", ")}]</p>
-        <p>Aniversário: ${person.birthday}</p>
-        <p>Profissão: ${person.profession}</p>`;
+        <p>CPF: ${element.CPF}</p>
+        <p>Nome: ${element.name}</p>
+        <p>Endereço: ${element.street}</p>
+        <p>Numero${element.nro}</p>
+        <p>CEP: ${element.CEP}</p>
+        <p>Emails: [ ${element.emails.join(", ")} ]</p>
+        <p>Telefones: [ ${element.telephones.join(", ")} ]</p>
+        <p>Aniversário: ${element.birthday}</p>
+        <p>Profissão: ${element.profession}</p>`;
         view.appendChild(attributsPeople);
       });
     } else {
