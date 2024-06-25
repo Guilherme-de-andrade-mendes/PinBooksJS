@@ -88,3 +88,12 @@ footer {
   height: 5vh;
   width: 100%;
 }
+
+@media (max-width: 767px){
+  main{
+    display: block;
+  }
+  main > img {
+    margin-top: 40px;
+  }
+}
